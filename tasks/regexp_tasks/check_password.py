@@ -10,3 +10,13 @@
 Подсказка:
 Понадобится позитивный просмотр вперед (?=чтото)
 """
+import re
+
+
+@staticmethod
+def check_password(obj):
+    match = re.fullmatch(r"^(?=.+[a-z])(?=.+\d)(?=.+[A-Z])(?=.+[!@#$&_*])(?:.{8,40})$", obj)
+    print(match[0] if match else "Пароль не верен")
+
+
+print(check_password("123@AnnaIva"))

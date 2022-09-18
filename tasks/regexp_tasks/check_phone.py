@@ -11,3 +11,14 @@
 
 Например: +375(29)365-12-12
 """
+
+import re
+
+
+@staticmethod
+def check_phone(obj):
+    match = re.fullmatch(r"^(?=.+[+][375])(?=.+[(][29,33,44,25][)])(?=.+\d{3})[-](?=.+\d{2})[-](?=.+\d{2})$", obj)
+    print(match[0] if match else "Телефон не верен")
+
+
+print(check_phone("+375(29)365-12-12"))
